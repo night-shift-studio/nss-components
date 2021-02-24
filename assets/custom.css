@@ -3,6 +3,7 @@ body {
   color: #373539;
   font-family: 'Montserrat', sans-serif;
 }
+
 .container {
  padding: 200px;
 }
@@ -42,8 +43,8 @@ body {
   position: relative;
   right: 20px;
   top: 2px;
-  transform: rotate(-45deg);
-  transition: all 0.25s ease-in-out;
+  transform: rotate(135deg);
+  transition: 0.35s ease-in-out;
   vertical-align: top;
   width: 10px;
 }
@@ -60,7 +61,7 @@ body {
 }
 
 .faq-drawer__trigger:checked + .faq-drawer__title::after {
-  transform: rotate(-225deg);
+  transform: rotate(-45deg);
   transition: 0.25s ease-in-out;
 }
 
