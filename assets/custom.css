@@ -64,11 +64,9 @@ body {
   transition: 0.25s ease-in-out;
 }
 
-
 input[type="checkbox"] {
   display: none;
 }
-
 
 @media only screen and (max-width: 600px) {
   .container {
