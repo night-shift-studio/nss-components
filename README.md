@@ -7,7 +7,7 @@
 This repo is a library of basic common website components built from scratch to be reskinned for future projects.
 
 Components include: 
-- Faq Drawers 
+- Faq Accordion (Demo: https://codepen.io/nightshiftstudio/pen/yLVpOdW)
 	
 ## Technologies
 These projects are created with:
