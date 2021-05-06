@@ -5,10 +5,14 @@ VANILLA CSS COLLAPSABLE DRAWERS: https://codepen.io/builtbyluke/pen/dBVVQR -->
 <!DOCTYPE html>
 <html>
 <head>
-<title>NSS Custom FAQ Component</title>
+<meta charset="utf-8">
+<html lang="en">
+<meta name="description" content="">
+<title>NSS Custom Components</title>
 <link rel="stylesheet" href="assets/custom.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+<!-- <script type="text/javascript" href="assets/js/components.js"></script>  -->
 </head>
 
 <body>
@@ -51,7 +55,46 @@ VANILLA CSS COLLAPSABLE DRAWERS: https://codepen.io/builtbyluke/pen/dBVVQR -->
     </div>
     
   </div>
+  
+  <div id="consent-popup" class="hidden">
+    <p>this is dummy content</p>
+    <a id="accept" href="#">Close</a>
+  </div>
+  
+<script>
+  
+console.log("test");
+//this is the function where we store the cookies 
+const cookieStorage = {
+  getItem: (key) => {
+    const cookies = document.cookie
+      .split(';')
+      .map(cookie => cookie.split('='))
+      .reduce((acc, [key, value]) => ({ ...acc, [key.trim()]: value}), {});
+    return cookies[key];  
+  },
+  setItem: (key, value) => {
+    document.cookie = `${key}=${value}`
+  },
+};    
 
+const storageType = cookieStorage;
+const consetPropertyName = 'consent';
+
+
+const shouldShowPopup = () => !storageType.getItem(consetPropertyName);
+const saveToStorage = () => storageType.setItem(consetPropertyName, true );
+
+window.onload = () => {
+  if (shouldShowPopup()) {
+    const consent = confirm('agree to contions');
+    if (consent) {
+      saveToStorage();
+    }
+  }
+}; 
+
+</script>
+ 
 </body>
-
 </html>

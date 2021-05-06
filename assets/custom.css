@@ -49,6 +49,24 @@ body {
   width: 10px;
 }
 
+
+/* MODAL */
+#consent-popup {
+  position: fixed;
+  bottom: 0;
+  left:0;
+  right: 0;
+  padding: 2rem;
+  opacity: 1;
+  background-color: white;
+  transition: opacity .8 ease;
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+/* MODAL */
+
 /* OPTIONAL HOVER STATE */
 .faq-drawer__title:hover { 
   color: #4E4B52  ;
