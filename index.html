@@ -9,10 +9,11 @@ VANILLA CSS COLLAPSABLE DRAWERS: https://codepen.io/builtbyluke/pen/dBVVQR -->
 <html lang="en">
 <meta name="description" content="">
 <title>NSS Custom Components</title>
-<link rel="stylesheet" href="assets/custom.css">
+<link rel="stylesheet" href="assets/css/accordion.css">
+<link rel="stylesheet" href="assets/css/modal.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
-<!-- <script type="text/javascript" href="assets/js/components.js"></script>  -->
+<script type="text/javascript" href="assets/js/modal.js"></script> 
 </head>
 
 <body>
@@ -56,9 +57,9 @@ VANILLA CSS COLLAPSABLE DRAWERS: https://codepen.io/builtbyluke/pen/dBVVQR -->
     
   </div>
   
-  <div id="consent-popup" class="hidden">
+  <div class="hidden" id="nss-modal">
     <p>this is dummy content</p>
-    <a id="accept" href="#">Close</a>
+    <a id="close" href="#"><img src="assets/img/close.svg"></a>
   </div>
   
 <script>
@@ -78,19 +79,32 @@ const cookieStorage = {
   },
 };    
 
+//this sets the cookie stored to be 'viewed'
 const storageType = cookieStorage;
-const consetPropertyName = 'consent';
+const modalPropertyName = 'viewed';
+
+const shouldShowPopup = () => !storageType.getItem(modalPropertyName);
+const saveToStorage = () => storageType.setItem(modalPropertyName, true );
 
 
-const shouldShowPopup = () => !storageType.getItem(consetPropertyName);
-const saveToStorage = () => storageType.setItem(consetPropertyName, true );
-
+//this gets the nss modal and hides it on page load
 window.onload = () => {
-  if (shouldShowPopup()) {
-    const consent = confirm('agree to contions');
-    if (consent) {
-      saveToStorage();
-    }
+  const nssModal = document.getElementById('nss-modal');
+  const closeBtn = document.getElementById('close'); 
+  
+  const closeFn = event => {
+    saveToStorage(storageType);
+    nssModal.classList.add('hidden');
+  };
+  
+  closeBtn.addEventListener('click', closeFn);
+  
+  
+//this shows the modal after 2 seconds  
+  if (shouldShowPopup(storageType)) {
+    setTimeout(() => {
+      nssModal.classList.remove('hidden');
+    }, 2000);
   }
 }; 
 
