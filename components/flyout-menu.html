@@ -1,0 +1,39 @@
+<!-- NOTES THIS COMPONENT WAS INSPIRED BY & REWORKED FROM https://codepen.io/equinusocio/pen/wPvvmv -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>NSS FLYOUT MENU COMPONENT</title>
+<link rel="stylesheet" href="../assets/flyout.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="flyout-menu__wrapper">
+    
+    <input type="checkbox" data-menu id="nav-opener" hidden>
+    <label for="nav-opener" tabindex="0" aria-haspopup="true" aria-label="Open Menu" role="button"	aria-controls="menu" class="nav__menu--open flex flex__middle" id="openmenu">
+      <div class="hamburger flex__end" id="hamburger-1">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </div>
+    </label>
+    
+    <aside class="nav__menu" role="navigation" aria-label="Main" id="menu" aria-labelledby="openmenu">
+      <nav class="nav__wrapper">
+        <a tabindex="-1" href="#">Who We Are</a>
+        <a tabindex="-1" href="#">Our Goals</a>
+        <a tabindex="-1" href="#">What We Do</a>
+        <a tabindex="-1" href="#">Get in Touch</a>
+      </nav>
+      <label for="nav-opener" class="nav__menu--overlay"></label>
+    </aside>
+    
+  </div>
+
+</body>
+
+</html>

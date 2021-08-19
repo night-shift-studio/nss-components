@@ -8,6 +8,7 @@ This repo is a library of basic common website components built from scratch to 
 
 Components include: 
 - Faq Accordion (Demo: https://codepen.io/nightshiftstudio/pen/yLVpOdW)
+- Flyout Hamburger Menu (Demo: https://codepen.io/nightshiftstudio/pen/WNjVwrV)
 	
 ## Technologies
 These projects are created with:
